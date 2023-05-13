@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Expense</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/operations_income_add.css'%}">
+    <style>
+        tr:nth-child(even) {
+            background-color: rgb(182, 197, 144, 0.5);
+        }
+
+        tr:nth-child(odd) {
+            background-color: #f2f2f2
+        }
+        .table-link {
+        color: black;
+    text-decoration: none;
+        }
+        .btn-minus {
+    display:inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: #d0d0d0;
+    border-radius: 50%;
+    color: black;
+    font-size: 20px;
+    line-height: 40px;
+    text-align: center;
+    text-decoration: none;
+}
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <aside class="sidebar">
+            <div class="company">
+                {% load static %}
+                <a href="/user/home/"><img class='logo-comp' src="{% static 'img/logo2.png' %}" alt="logo"></a>
+                <h1 class="app"><a class="link-main" href="/user/home/">Money Control</a></h1>
+            </div>
+
+            <div class="reports">
+                <a class="active-link-reports" href="/reports/">Reports</a>
+            </div>
+
+            <div class="links">
+                <a class="active-link" href="/operations/cost/">Cost</a>
+            </div>
+
+            <div class="links">
+                <a class="active-link" href="/operations/group_cost/">Group cost</a>
+            </div>
+
+            <div class="links">
+                <a class="active-link" href="/operations/safe/">Safe</a>
+            </div>
+
+        </aside>
+
+        <div class="mein-content">
+            <div class="header-right">
+                <ul class="heager-list">
+                    <li class="header-item"><span class="username">{{ user_name }}</span></li>
+                    <li class='header-item'><a class="header-link" href="/user/logout/">Exit</a></li>
+                </ul>
+            </div>
+            <div class="changeable-content">
+                <form action="/operations/expense/{{expense_id}}/" method="post">{% csrf_token %}
+                    <h2 class="title">View and delete expense </h2>
+                    <div class="new-cost-group">
+                        {% for expense in view_expense %}
+
+                        <input class="box" type="text" name="date" value="{{expense.date}}">
+
+                        <select class="box" name="safe_id">
+                            <option value="{{expense.safe_id.id}}">{{expense.safe_id.name}}</option>
+                        </select>
+                        <select class="box" name="group_id" id="group-select">
+                            <option value="{{expense.group_id.id}}">{{expense.group_id.name}}</option>
+                        </select>
+
+                        <select class="box" name="cost_id" id="cost-select">
+                            <option value="{{expense.cost_id.id}}">{{expense.cost_id.name}}</option>
+                        </select>
+
+                        <input class='box' type="text" value="{{expense.sum_transactions}}">
+                        {% endfor %}
+
+                        <input class="button" type="submit" value="Delete">
+
+                    </div>
+                </form>
+                <footer>
+                    <p class="copyright">Ju © 2023</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

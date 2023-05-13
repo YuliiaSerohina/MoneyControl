@@ -1,0 +1,178 @@
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    background: #FFFFFF;
+    margin: auto;
+}
+
+.logo-comp {
+    width: 55px;
+    height: 40px;
+
+}
+
+.mein-content {
+    padding-left: 40px;
+    padding-bottom: 40px;
+    padding-right: 30px;
+    padding-top: 5px;
+    width: 800px;
+}
+
+.sidebar {
+    background: #f8f8f8;
+    width: 300px;
+    height: 770px;
+}
+
+.app {
+    color: #6b6b6b;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 35px;
+    line-height: 17px;
+
+}
+
+.active-link {
+    color: black;
+    text-decoration: none;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 19px;
+    line-height: 17px;
+}
+
+.active-link-reports {
+    color: black;
+    text-decoration: none;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 27px;
+    line-height: 17px;
+}
+
+.company {
+    margin-bottom: 150px;
+    text-align: center;
+
+}
+
+.reports {
+
+    margin-bottom: 100px;
+    text-align: center;
+}
+
+.links {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.link-main {
+    text-decoration: none;
+    color: #6b6b6b;
+}
+
+.header-right {
+    margin-bottom: 20px;
+    float: none;
+}
+
+.header-item {
+    display: inline;
+    margin-left: 10px;
+}
+
+.header-link {
+    color: black;
+    text-decoration: none;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 17px;
+}
+
+.heager-list {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+    overflow: hidden;
+    display: block;
+    text-align: right;
+}
+
+.username {
+    color: black;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 17px;
+}
+
+.changeable-content {
+    margin-top: 1%;
+    padding-left: 50px;
+}
+
+.new-cost-group {
+    background-color: #f8f8f8;
+    border: 6px solid #f8f8f8;
+    border-radius: 25px;
+    margin-bottom: 50px;
+    width: 50%;
+}
+
+.box {
+    background-color: white;
+    border: solid #f8f8f8;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    display: block;
+    cursor: pointer;
+    border-radius: 16px;
+
+    margin-top: 10px;
+
+    margin-bottom: 10px;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.button {
+    background-color: #b6c590;
+    border: none;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    cursor: pointer;
+    border-radius: 16px;
+}
+
+.header {
+    font-family: 'Times New Roman', Times, serif;
+    position: absolute;
+    top: 17%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+
+.copyright {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 13px;
+    color: #aaa;
+    margin-bottom: 0;
+}
+
+.title {
+    padding-left: 40px;
+
+}
+

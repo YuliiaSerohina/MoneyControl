@@ -1,0 +1,52 @@
+.logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.header {
+    font-family: 'Times New Roman', Times, serif;
+    position: absolute;
+    top: 17%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+.frame {
+    background-color: #f8f8f8;
+    border: 6px solid #f8f8f8;
+    border-radius: 25px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    width: 22%;
+    height: 30%;
+}
+.button {
+    background-color: #b6c590;
+    border: none;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    cursor: pointer;
+    border-radius: 16px;
+}
+.box {
+    background-color: white;
+    border: solid #f8f8f8;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 16px;
+    transform: translate(35%, 0);
+    cursor: pointer;
+}

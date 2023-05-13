@@ -1,0 +1,67 @@
+.logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.header {
+    font-family: 'Times New Roman', Times, serif;
+    position: absolute;
+    top: 17%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+.frame-login {
+    background-color: #f8f8f8;
+    border: 6px solid #f8f8f8;
+    border-radius: 25px;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    width: 22%;
+    height: 20%;
+}
+.box {
+    background-color: white;
+    border: solid #f8f8f8;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 16px;
+    transform: translate(35%, 0);
+    cursor: pointer;
+}
+.button-login {
+    background-color: #b6c590;
+    border: none;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    position: relative;
+    cursor: pointer;
+    border-radius: 16px;
+    top: 15%;
+    left: 50%;
+    margin-right: 70%;
+    transform: translate(-50%, -50%);
+}
+.active {
+    color: black;
+    text-decoration: none;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 17px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+    }
