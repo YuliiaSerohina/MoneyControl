@@ -53,6 +53,7 @@ tr:nth-child(odd) {
             </div>
             <div class="changeable-content">
                 <form action="/reports/costs_pie_chart/" method="post">{% csrf_token %}
+                    <h1>Costs pie chart</h1>
                     <h2 class="title">Select period</h2>
                     <div class="new-cost-group">
                         <input class="box" type="date" name="date_start" id="myDateField">
