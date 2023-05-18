@@ -52,12 +52,12 @@ tr:nth-child(odd) {
                 </ul>
             </div>
             <div class="changeable-content">
-                <form action="/reports/group_costs_pie_chart/" method="post">{% csrf_token %}
-                    <h1>Group costs pie chart</h1>
+                <form action="/reports/cost_group_structure/" method="post">{% csrf_token %}
+                    <h1>Cost group structure</h1>
                     {% if error_message %}
                     <p>{{ error_message }}</p>
                     {% endif %}
-                    <h2 class="title">Select period</h2>
+                    <h2 class="title">Select period and group cost</h2>
                     <div class="new-cost-group">
                         <input class="box" type="date" name="date_start" id="myDateField">
                          <script>
@@ -69,6 +69,11 @@ tr:nth-child(odd) {
                             var currentDate = new Date().toISOString().split('T')[0];
                             document.getElementById('myDateField1').value = currentDate;
                         </script>
+                        <select class="box" name="group_id">
+                            {% for group in expense_cost_group %}
+                            <option value="{{group.id}}">{{group.name}}</option>
+                            {% endfor %}
+                        </select>
                         <input class="button" type="submit" value="Next">
                     </div>
                     <br>

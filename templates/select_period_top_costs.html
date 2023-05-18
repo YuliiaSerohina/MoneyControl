@@ -54,6 +54,9 @@ tr:nth-child(odd) {
             <div class="changeable-content">
                 <form action="/reports/top_costs/" method="post">{% csrf_token %}
                     <h1>Top costs</h1>
+                    {% if error_message %}
+                    <p>{{ error_message }}</p>
+                    {% endif %}
                     <h2 class="title">Select period</h2>
                     <div class="new-cost-group">
                         <input class="box" type="date" name="date_start" id="myDateField">

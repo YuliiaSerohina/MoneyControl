@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>All reports</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/operations_income_add.css'%}">
+    <style>
+
+  .report-logo {
+  width: 270px;
+  height: 150px;
+  }
+  .report-logo2 {
+  width: 160px;
+  height: 150px;
+  }
+  .report-logo3 {
+  width: 180px;
+  height: 150px;
+  }
+  .title-logo {
+  color: black;
+  text-decoration: none;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 17px;
+  }
+  .list {
+  display: inline-block;
+    margin-left: 10px;
+    list-style: none;
+  }
+.list-items {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.list-items a {
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+}
+
+.list-items a img {
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <aside class="sidebar">
+            <div class="company">
+                {% load static %}
+                <a href="/user/home/"><img class='logo-comp' src="{% static 'img/logo2.png' %}" alt="logo"></a>
+                <h1 class="app"><a class="link-main" href="/user/home/">Money Control</a></h1>
+            </div>
+
+            <div class="reports">
+                <a class="active-link-reports" href="/reports/">Reports</a>
+            </div>
+
+            <div class="links">
+                <a class="active-link" href="/operations/cost/">Cost</a>
+            </div>
+
+            <div class="links">
+                <a class="active-link" href="/operations/group_cost/">Group cost</a>
+            </div>
+
+            <div class="links">
+                <a class="active-link" href="/operations/safe/">Safe</a>
+            </div>
+
+        </aside>
+
+        <div class="mein-content">
+            <div class="header-right">
+                <ul class="heager-list">
+                    <li class="header-item"><span class="username">{{ user_name }}</span></li>
+                    <li class='header-item'><a class="header-link" href="/user/logout/">Exit</a></li>
+                </ul>
+            </div>
+            <div class="changeable-content">
+
+                    <h1>Reports</h1>
+                <ul class="list">
+                     {% load static %}
+                    <li class="list-items"><a class="title-logo" href="/reports/balance/"><img class='report-logo' src="{% static 'img/balance.png' %}">Balance</a></li>
+                    <li class="list-items"><a class="title-logo" href="/reports/select_period_cash_flow/"><img class="report-logo2" src="{% static 'img/cashflow.png' %}">Cash flow</a></li>
+                    <li class="list-items"><a class="title-logo" href="/reports/period_group_costs_pie_chart/"><img class="report-logo2" src="{% static 'img/group_cots_pie_chart.png' %}">Group costs pie chart</a></li>
+                    <li class="list-items"><a class="title-logo" href="/reports/period_costs_pie_chart/"><img class="report-logo" src="{% static 'img/costs_pie_chart.png' %}">Costs pie chart</a></li>
+                    <li class="list-items"><a class="title-logo" href="/reports/select_period_cost_group_structure/"><img class="report-logo2" src="{% static 'img/cost_group_structure.png' %}">Cost group structure</a></li>
+                    <li class="list-items"><a class="title-logo" href="/reports/period_top_costs/"><img class="report-logo2" src="{% static 'img/top_costs.png' %}">Top costs</a></li>
+                    <li class="list-items"><a class="title-logo" href="/reports/select_period_cost_to_income_ratio/"><img class="report-logo2" src="{% static 'img/costs_to_income_ratio.png' %}">Costs to income ratio</a></li>
+                </ul>
+
+                    <br>
+                    <br>
+                <footer>
+                    <p class="copyright">Ju © 2023</p>
+                </footer>
+            </div>
+    </div>
+    </div>
+</body>
+</html>
