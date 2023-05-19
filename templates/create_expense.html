@@ -90,8 +90,10 @@
                         </script>
                         <select class="box" name="safe_id">
                             <option value="">Select safe</option>
-                            {% for safe in safes_list %}
-                            <option value="{{safe.id}}">{{safe.name}} {{safe.currency}}</option>
+                            {% for safe in safes_balance_list %}
+                            {% for key, value in safe.items %}
+                            <option value="{{key.id}}">{{key.name}} - {{value}} {{key.currency}}</option>
+                            {% endfor %}
                             {% endfor %}
                         </select>
 

@@ -1,3 +1,5 @@
+import datetime
+from django.db.models import Sum
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.shortcuts import redirect
@@ -121,13 +123,24 @@ def create_income(request):
             error_message = 'Fill all fields'
             user_name = request.user.username
             safes_list = Safe.objects.filter(user_id=request.user.pk)
+            safes_balance_list = []
+            for safe in safes_list:
+                safe_expenses = Transactions.objects.filter(
+                    safe_id=safe.id, group_id__type_group=0).aggregate(total=Sum('sum_transactions'))
+                safe_incomes = Transactions.objects.filter(
+                    safe_id=safe.id, group_id__type_group=1).aggregate(total=Sum('sum_transactions'))
+                safe_expenses = safe_expenses['total'] or 0
+                safe_incomes = safe_incomes['total'] or 0
+                if safe_expenses or safe_incomes:
+                    balance = safe_incomes - safe_expenses
+                    safes_balance_list.append({safe: balance})
             groups_list = CostGroup.objects.filter(user_id=request.user.pk, type_group=1)
             user_incomes = Transactions.objects.filter(user_id=request.user.pk, group_id__type_group=1).order_by(
                 '-date')
             pages = Paginator(user_incomes, 7)
             page_number = request.GET.get('page')
             page_obj = pages.get_page(page_number)
-            context = {'user_name': user_name, 'safes_list': safes_list, 'groups_list': groups_list,
+            context = {'user_name': user_name, 'safes_balance_list': safes_balance_list, 'groups_list': groups_list,
                        'page_obj': page_obj, 'error_message': error_message}
             return render(request, 'create_income.html', context)
         income = Transactions(user_id=request.user.pk,
@@ -140,12 +153,23 @@ def create_income(request):
         income.save()
     user_name = request.user.username
     safes_list = Safe.objects.filter(user_id=request.user.pk)
+    safes_balance_list = []
+    for safe in safes_list:
+        safe_expenses = Transactions.objects.filter(
+            safe_id=safe.id, group_id__type_group=0).aggregate(total=Sum('sum_transactions'))
+        safe_incomes = Transactions.objects.filter(
+            safe_id=safe.id, group_id__type_group=1).aggregate(total=Sum('sum_transactions'))
+        safe_expenses = safe_expenses['total'] or 0
+        safe_incomes = safe_incomes['total'] or 0
+        if safe_expenses or safe_incomes:
+            balance = safe_incomes - safe_expenses
+            safes_balance_list.append({safe: balance})
     groups_list = CostGroup.objects.filter(user_id=request.user.pk, type_group=1)
     user_incomes = Transactions.objects.filter(user_id=request.user.pk, group_id__type_group=1).order_by('-date')
     pages = Paginator(user_incomes, 7)
     page_number = request.GET.get('page')
     page_obj = pages.get_page(page_number)
-    context = {'user_name': user_name, 'safes_list': safes_list, 'groups_list': groups_list, 'page_obj': page_obj}
+    context = {'user_name': user_name, 'safes_balance_list': safes_balance_list, 'groups_list': groups_list, 'page_obj': page_obj}
     return render(request, 'create_income.html', context)
 
 
@@ -179,13 +203,24 @@ def create_expense(request):
             error_message = 'Fill all fields'
             user_name = request.user.username
             safes_list = Safe.objects.filter(user_id=request.user.pk)
+            safes_balance_list = []
+            for safe in safes_list:
+                safe_expenses = Transactions.objects.filter(
+                    safe_id=safe.id, group_id__type_group=0).aggregate(total=Sum('sum_transactions'))
+                safe_incomes = Transactions.objects.filter(
+                    safe_id=safe.id, group_id__type_group=1).aggregate(total=Sum('sum_transactions'))
+                safe_expenses = safe_expenses['total'] or 0
+                safe_incomes = safe_incomes['total'] or 0
+                if safe_expenses or safe_incomes:
+                    balance = safe_incomes - safe_expenses
+                    safes_balance_list.append({safe: balance})
             groups_list = CostGroup.objects.filter(user_id=request.user.pk, type_group=0)
             user_incomes = Transactions.objects.filter(user_id=request.user.pk, group_id__type_group=0).order_by(
                 '-date')
             pages = Paginator(user_incomes, 7)
             page_number = request.GET.get('page')
             page_obj = pages.get_page(page_number)
-            context = {'user_name': user_name, 'safes_list': safes_list, 'groups_list': groups_list,
+            context = {'user_name': user_name, 'safes_balance_list': safes_balance_list, 'groups_list': groups_list,
                        'page_obj': page_obj, 'error_message': error_message}
             return render(request, 'create_expense.html', context)
         expense = Transactions(user_id=request.user.pk,
@@ -198,12 +233,23 @@ def create_expense(request):
         expense.save()
     user_name = request.user.username
     safes_list = Safe.objects.filter(user_id=request.user.pk)
+    safes_balance_list = []
+    for safe in safes_list:
+        safe_expenses = Transactions.objects.filter(
+            safe_id=safe.id, group_id__type_group=0).aggregate(total=Sum('sum_transactions'))
+        safe_incomes = Transactions.objects.filter(
+            safe_id=safe.id, group_id__type_group=1).aggregate(total=Sum('sum_transactions'))
+        safe_expenses = safe_expenses['total'] or 0
+        safe_incomes = safe_incomes['total'] or 0
+        if safe_expenses or safe_incomes:
+            balance = safe_incomes - safe_expenses
+            safes_balance_list.append({safe: balance})
     groups_list = CostGroup.objects.filter(user_id=request.user.pk, type_group=0)
     user_expense = Transactions.objects.filter(user_id=request.user.pk, group_id__type_group=0).order_by('-date')
     pages = Paginator(user_expense, 7)
     page_number = request.GET.get('page')
     page_obj = pages.get_page(page_number)
-    context = {'user_name': user_name, 'safes_list': safes_list, 'groups_list': groups_list, 'page_obj': page_obj}
+    context = {'user_name': user_name, 'safes_balance_list': safes_balance_list, 'groups_list': groups_list, 'page_obj': page_obj}
     return render(request, 'create_expense.html', context)
 
 
