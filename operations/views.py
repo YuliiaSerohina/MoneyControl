@@ -131,9 +131,8 @@ def create_income(request):
                     safe_id=safe.id, group_id__type_group=1).aggregate(total=Sum('sum_transactions'))
                 safe_expenses = safe_expenses['total'] or 0
                 safe_incomes = safe_incomes['total'] or 0
-                if safe_expenses or safe_incomes:
-                    balance = safe_incomes - safe_expenses
-                    safes_balance_list.append({safe: balance})
+                balance = safe_incomes - safe_expenses
+                safes_balance_list.append({safe: balance})
             groups_list = CostGroup.objects.filter(user_id=request.user.pk, type_group=1)
             user_incomes = Transactions.objects.filter(user_id=request.user.pk, group_id__type_group=1).order_by(
                 '-date')
@@ -161,9 +160,8 @@ def create_income(request):
             safe_id=safe.id, group_id__type_group=1).aggregate(total=Sum('sum_transactions'))
         safe_expenses = safe_expenses['total'] or 0
         safe_incomes = safe_incomes['total'] or 0
-        if safe_expenses or safe_incomes:
-            balance = safe_incomes - safe_expenses
-            safes_balance_list.append({safe: balance})
+        balance = safe_incomes - safe_expenses
+        safes_balance_list.append({safe: balance})
     groups_list = CostGroup.objects.filter(user_id=request.user.pk, type_group=1)
     user_incomes = Transactions.objects.filter(user_id=request.user.pk, group_id__type_group=1).order_by('-date')
     pages = Paginator(user_incomes, 7)
@@ -211,9 +209,8 @@ def create_expense(request):
                     safe_id=safe.id, group_id__type_group=1).aggregate(total=Sum('sum_transactions'))
                 safe_expenses = safe_expenses['total'] or 0
                 safe_incomes = safe_incomes['total'] or 0
-                if safe_expenses or safe_incomes:
-                    balance = safe_incomes - safe_expenses
-                    safes_balance_list.append({safe: balance})
+                balance = safe_incomes - safe_expenses
+                safes_balance_list.append({safe: balance})
             groups_list = CostGroup.objects.filter(user_id=request.user.pk, type_group=0)
             user_incomes = Transactions.objects.filter(user_id=request.user.pk, group_id__type_group=0).order_by(
                 '-date')
@@ -241,9 +238,8 @@ def create_expense(request):
             safe_id=safe.id, group_id__type_group=1).aggregate(total=Sum('sum_transactions'))
         safe_expenses = safe_expenses['total'] or 0
         safe_incomes = safe_incomes['total'] or 0
-        if safe_expenses or safe_incomes:
-            balance = safe_incomes - safe_expenses
-            safes_balance_list.append({safe: balance})
+        balance = safe_incomes - safe_expenses
+        safes_balance_list.append({safe: balance})
     groups_list = CostGroup.objects.filter(user_id=request.user.pk, type_group=0)
     user_expense = Transactions.objects.filter(user_id=request.user.pk, group_id__type_group=0).order_by('-date')
     pages = Paginator(user_expense, 7)
